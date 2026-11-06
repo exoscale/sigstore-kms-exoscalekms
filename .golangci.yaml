@@ -1,0 +1,45 @@
+version: "2"
+linters:
+  enable:
+    - bodyclose
+    - durationcheck
+    - errname
+    - exhaustive
+    - goprintffuncname
+    - grouper
+    - makezero
+    - misspell
+    - nilerr
+    - noctx
+    - nosprintfhostport
+    - thelper
+    - unconvert
+    - unparam
+    - usetesting
+    - wastedassign
+  settings:
+    exhaustive:
+      default-signifies-exhaustive: true
+    staticcheck:
+      checks:
+        - all
+  exclusions:
+    generated: lax
+    presets:
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

@@ -1,0 +1,43 @@
+version: 2
+
+builds:
+  - binary: sigstore-kms-exoscalekms
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  # No version in the name, so releases/latest/download URLs stay stable.
+  - name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
+  # A commit lands in the first group by order that matches, so renovate's fix(deps) goes to Dependencies.
+  groups:
+    - title: Features
+      regexp: '^.*?feat(\(.+\))??!?:.+$'
+      order: 0
+    - title: Dependencies
+      regexp: '^.*?\w+\(deps\)!?:.+$'
+      order: 1
+    - title: Bug fixes
+      regexp: '^.*?fix(\(.+\))??!?:.+$'
+      order: 2
+    - title: Others
+      order: 999
