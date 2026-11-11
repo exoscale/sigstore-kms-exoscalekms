@@ -4,5 +4,16 @@
     "github>exoscale/github-actions:renovate-default.json"
   ],
   "postUpdateOptions": ["gomodTidy"],
-  "osvVulnerabilityAlerts": true
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "automerge": true,
+    "labels": ["dependencies", "security", "triggered_by:renovate"]
+  },
+  "packageRules": [
+    {
+      "description": "Bump the Go version in go.mod",
+      "matchDepNames": ["go"],
+      "rangeStrategy": "bump"
+    }
+  ]
 }
