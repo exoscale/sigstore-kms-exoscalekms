@@ -10,7 +10,7 @@ On Linux and macOS, the install script downloads the latest release, checks it a
 curl -sSfL https://raw.githubusercontent.com/exoscale/sigstore-kms-exoscalekms/main/install.sh | sh
 ```
 
-Set `BINDIR` to install somewhere else and `VERSION` to pin a release, for example `| BINDIR=/usr/local/bin VERSION=v0.1.0 sh`.
+Set `BINDIR` to install somewhere else and `VERSION` to pin a release, for example `| BINDIR=/usr/local/bin VERSION=v0.1.1 sh`.
 
 Or download the binary for your platform from the [latest release](https://github.com/exoscale/sigstore-kms-exoscalekms/releases/latest), for example Linux on amd64:
 
